@@ -1,18 +1,54 @@
-# Solid To-Do App
+# Solid Todo App
 
-A decentralized to-do application built using Solid, allowing users to manage tasks while maintaining control over their data. This project serves as a learning experience to explore Solid's ecosystem, including `solid-client` and `solid-ui-react`.
+A modern, decentralized todo application built using React and [Solid](https://solidproject.org/) - the web decentralization project focused on true data ownership.
 
-## Features
-- User authentication with Solid Pods
-- Add, edit, and delete to-do items
-- Mark to-dos as completed
-- Store and retrieve to-do data from the user's Solid Pod
+**Live Demo:** [https://mbalhakim.github.io/solid-todo-app/](https://mbalhakim.github.io/solid-todo-app/)
 
+## 🌟 Features
+
+- **User authentication** with multiple Solid identity providers
+- **Complete data ownership** - Your todo data is stored in your personal Solid Pod, not on our servers
+- **Add, edit, and delete to-do items** with real-time updates to your Pod
+- **Mark to-dos as completed** with status tracking
+- **Profile management** - View and manage your Solid profile information
+- **Modern UI** built with Tailwind CSS for a responsive, clean interface
+
+## What is Solid?
+
+Solid (Social Linked Data) is a web decentralization project led by Sir Tim Berners-Lee, the inventor of the World Wide Web. It aims to radically change the way web applications work, giving users control over their data.
+
+In this Todo app:
+- Your data is stored in your personal Solid Pod, not in a centralized database
+- You explicitly grant and revoke access to your data
+- Your data can be reused across different applications
+
+##  What Makes This Project Special
+
+1. **True Data Ownership** - Unlike traditional todo apps that store your data on their servers, your todo items are stored in your personal Solid Pod.
+2. **Decentralized Authentication** - We use Solid OIDC authentication, allowing you to login with any Solid identity provider.
+3. **Profile Integration** - We've built a comprehensive profile view that displays your Solid Pod information, demonstrating the power of having your identity data under your control.
+4. **Modern Development Practices** - The project uses React with hooks, custom components, and modern JavaScript features.
+
+## 🛠️ Technologies Used
+
+-   **React** - Frontend framework
+-   **Solid Libraries:**
+    -   `@inrupt/solid-client` - To read and write data in Solid Pods
+    -   `@inrupt/solid-ui-react` - UI components for Solid integration
+-   **Tailwind CSS** - Utility-first CSS framework for styling
+-   **GitHub Pages** - For hosting the live demo
+
+## 📝 Key Implementation Details
+
+-   **Solid Authentication Flow** - Implements the Solid OIDC authentication flow
+-   **Data Storage** - Uses `@inrupt/solid-client` to read from and write to Solid Pods
+-   **Dynamic Provider Selection** - UI for selecting different Solid providers
+-   **Profile Data Extraction** - Reading various RDF predicates from a Solid profile
+-   **Responsive Design** - Layouts that work across devices
 ## Prerequisites
-- Basic knowledge of React
-- A Solid Pod Account (you can create one at [pod.inrupt.com](https://pod.inrupt.com/) or [solidcommunity.net](https://solidcommunity.net/)) - here you can choose a pod provider and make one you will get a WebID and Pod Storage
 
-## Getting Started
+- Basic knowledge of React
+- A Solid Pod Account (you can create one at [solidweb.org](https://solidweb.org), [pod.inrupt.com](https://pod.inrupt.com/), or [solidcommunity.net](https://solidcommunity.net/))
 
 ### Installation
 1. Clone the repository:
@@ -45,16 +81,13 @@ Users can log in using their Solid identity provider and choose where their data
 - `@inrupt/solid-client` – To read and write data in Solid Pods
 - `@inrupt/solid-ui-react` – UI components for interacting with Solid data
 
-## Next Steps
-- Improve UI/UX
-- Implement categories for tasks
-- Add sharing functionality to collaborate on to-do lists
-
 ## Resources
-- [Solid UI React Docs](https://docs.inrupt.com/developer-tools/javascript/solid-ui-react/)
-- [Solid Client Libraries Docs](https://docs.inrupt.com/developer-tools/javascript/client-libraries/)
-- [Solid Community Forum](https://forum.solidproject.org/)
+
+-   [Solid Project](https://solidproject.org)
+-   [Solid UI React Docs](https://www.npmjs.com/package/@inrupt/solid-ui-react)
+-   [Solid Client Libraries Docs](https://www.npmjs.com/package/@inrupt/solid-client)
+-   [Solid Community Forum](https://forum.solidproject.org/)
 
 ## License
-This project is licensed under the MIT License.
 
+This project is licensed under the MIT License.
