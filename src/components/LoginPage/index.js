@@ -22,6 +22,11 @@ const providers = {
     name: "Solid Community",
     colors: "from-purple-600 to-pink-700 hover:from-purple-700 hover:to-pink-800",
     icon: "👥",
+  },
+  "https://pod.ditlab.cloud/": {
+    name: "Solid Ditlab",
+    colors: "from-purple-600 to-pink-700 hover:from-purple-700 hover:to-pink-800",
+    icon: "⚙️",
   }
 };
 
