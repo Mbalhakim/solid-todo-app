@@ -10,7 +10,7 @@ A decentralized to-do application built using Solid, allowing users to manage ta
 
 ## Prerequisites
 - Basic knowledge of React
-- A Solid Pod (can be created during the authentication process)
+- A Solid Pod Account (you can create one at [pod.inrupt.com](https://pod.inrupt.com/) or [solidcommunity.net](https://solidcommunity.net/)) - here you can choose a pod provider and make one you will get a WebID and Pod Storage
 
 ## Getting Started
 
