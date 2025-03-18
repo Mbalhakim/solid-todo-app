@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { LoginButton } from "@inrupt/solid-ui-react";
 
 // Authentication options
@@ -6,7 +6,34 @@ const authOptions = {
   clientName: "Solid Todo App",
 };
 
+// Provider-specific colors and configurations
+const providers = {
+  "https://solidweb.org": {
+    name: "SolidWeb",
+    colors: "from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800",
+    icon: "🌐",
+  },
+  "https://inrupt.net": {
+    name: "Inrupt",
+    colors: "from-green-600 to-emerald-700 hover:from-green-700 hover:to-emerald-800",
+    icon: "🔒",
+  },
+  "https://solidcommunity.net": {
+    name: "Solid Community",
+    colors: "from-purple-600 to-pink-700 hover:from-purple-700 hover:to-pink-800",
+    icon: "👥",
+  }
+};
+
 function LoginPage() {
+  const [selectedProvider, setSelectedProvider] = useState("https://solidweb.org");
+
+  const handleProviderChange = (e) => {
+    setSelectedProvider(e.target.value);
+  };
+
+  const providerConfig = providers[selectedProvider];
+
   return (
     <div className="min-h-[70vh] flex flex-col md:flex-row items-center justify-center p-4 md:p-0">
       {/* Left side - Illustrations and intro */}
@@ -48,11 +75,12 @@ function LoginPage() {
               <select 
                 id="provider" 
                 className="block appearance-none w-full bg-gray-50 border border-gray-300 text-gray-700 py-3 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-                defaultValue="https://solidweb.org"
+                value={selectedProvider}
+                onChange={handleProviderChange}
               >
-                <option value="https://solidweb.org">solidweb.org</option>
-                <option value="https://inrupt.net">inrupt.net</option>
-                <option value="https://solidcommunity.net">solidcommunity.net</option>
+                {Object.keys(providers).map(key => (
+                  <option key={key} value={key}>{providers[key].name}</option>
+                ))}
               </select>
               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                 <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -64,19 +92,38 @@ function LoginPage() {
           
           <div className="mb-6">
             <LoginButton
-              oidcIssuer="https://solidweb.org"
+              oidcIssuer={selectedProvider}
               redirectUrl={window.location.href}
               authOptions={authOptions}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg focus:outline-none focus:shadow-outline transition-colors duration-300 flex justify-center items-center"
+              className={`w-full bg-gradient-to-r ${providerConfig.colors} text-white font-bold py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 shadow-md hover:shadow-lg transition-all duration-300 flex justify-center items-center`}
             >
-              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
-              </svg>
-              Login with Solid
+              <span className="mr-2 text-lg">{providerConfig.icon}</span>
+              <span>Login with {providerConfig.name}</span>
             </LoginButton>
           </div>
           
-          <div className="text-center">
+          <div className="mt-6 flex items-center">
+            <div className="flex-1 border-t border-gray-300"></div>
+            <span className="px-3 text-sm text-gray-500">or try these</span>
+            <div className="flex-1 border-t border-gray-300"></div>
+          </div>
+          
+          <div className="mt-6 grid grid-cols-3 gap-3">
+            {Object.keys(providers).map(key => (
+              <LoginButton
+                key={key}
+                oidcIssuer={key}
+                redirectUrl={window.location.href}
+                authOptions={authOptions}
+                className={`w-full bg-gradient-to-r ${providers[key].colors} text-white font-medium py-2 px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-blue-500 shadow-sm hover:shadow transition-all duration-300 flex flex-col justify-center items-center text-xs`}
+              >
+                <span className="text-lg mb-1">{providers[key].icon}</span>
+                <span>{providers[key].name}</span>
+              </LoginButton>
+            ))}
+          </div>
+          
+          <div className="text-center mt-8">
             <p className="text-sm text-gray-600">
               Don't have a Solid identity yet?
             </p>
