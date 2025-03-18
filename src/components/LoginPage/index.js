@@ -111,10 +111,9 @@ function LoginPage() {
           <div className="mt-6 grid grid-cols-3 gap-3">
             {Object.keys(providers).map(key => (
               <LoginButton
-                key={key}
-                oidcIssuer={key}
-                redirectUrl={window.location.href}
-                authOptions={authOptions}
+              oidcIssuer={selectedProvider}
+              redirectUrl={window.location.origin + window.location.pathname}
+              authOptions={authOptions}
                 className={`w-full bg-gradient-to-r ${providers[key].colors} text-white font-medium py-2 px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-blue-500 shadow-sm hover:shadow transition-all duration-300 flex flex-col justify-center items-center text-xs`}
               >
                 <span className="text-lg mb-1">{providers[key].icon}</span>
