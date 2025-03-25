@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/solid-todo-app/static/css/main.d5147269.css",
-    "main.js": "/solid-todo-app/static/js/main.b5b79e21.js",
+    "main.css": "/solid-todo-app/static/css/main.ff0ca1b5.css",
+    "main.js": "/solid-todo-app/static/js/main.f54203fd.js",
     "static/js/453.84396627.chunk.js": "/solid-todo-app/static/js/453.84396627.chunk.js",
     "index.html": "/solid-todo-app/index.html",
-    "main.d5147269.css.map": "/solid-todo-app/static/css/main.d5147269.css.map",
-    "main.b5b79e21.js.map": "/solid-todo-app/static/js/main.b5b79e21.js.map",
+    "main.ff0ca1b5.css.map": "/solid-todo-app/static/css/main.ff0ca1b5.css.map",
+    "main.f54203fd.js.map": "/solid-todo-app/static/js/main.f54203fd.js.map",
     "453.84396627.chunk.js.map": "/solid-todo-app/static/js/453.84396627.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d5147269.css",
-    "static/js/main.b5b79e21.js"
+    "static/css/main.ff0ca1b5.css",
+    "static/js/main.f54203fd.js"
   ]
 }
